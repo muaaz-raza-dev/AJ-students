@@ -3,22 +3,24 @@ import useFetchShallowClassDetails from '@/hooks/home/useFetchShallowClassDetail
 import moment from 'moment';
 import React from 'react'
 import { FaChalkboardTeacher,  FaClock,  FaSchool, FaUsers } from 'react-icons/fa'
+import ClassBasicSkeleton from './class-basic-skeleton';
 
 export default function ClassBasicInfo() {
   const {isLoading,data} = useFetchShallowClassDetails()
-
   const q =data?.payload
-  if(isLoading) return <h1>loading ...</h1>
+
+  if(isLoading) return <ClassBasicSkeleton/>
+
   return (
     <div className="w-full mx-auto   rounded-xl overflow-hidden transform bg-secondary">
     <div className="flex items-center bg-primary text-white p-4">
       <div className="flex-1">
         <h2 className="text-xl font-semibold">Class {q?.class_name}</h2>
-        <p className="">Section 
+        <div className="flex gap-2">Section :
           <b>
             {q?.section_name}
             </b> 
-            </p>
+            </div>
       </div>
       <div className="flex-shrink-0 ml-4 bg-primary-foreground p-2 rounded-full">
         <FaSchool className="text-primary text-lg" />

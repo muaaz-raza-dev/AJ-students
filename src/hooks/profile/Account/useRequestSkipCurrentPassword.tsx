@@ -1,4 +1,4 @@
-import RequestSkipCurrentPassword from '@/api/Profile/Account/request-skip-c-pass';
+import RequestSkipCurrentPassword from '@/api/Profile/Account/request-skip-c-pass.api';
 import toast from 'react-hot-toast';
 import { useMutation } from 'react-query';
 

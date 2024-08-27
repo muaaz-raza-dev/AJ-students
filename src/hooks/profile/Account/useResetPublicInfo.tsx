@@ -1,4 +1,4 @@
-import ResetPublicInfo from "@/api/Profile/Account/reset-public-info";
+import ResetPublicInfo from "@/api/Profile/Account/reset-public-info.api";
 import { IbasicInfo } from "@/types/Icredits";
 import toast from "react-hot-toast";
 import { useMutation } from "react-query";

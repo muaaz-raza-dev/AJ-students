@@ -2,14 +2,14 @@ import useFetchStudentInfo from '@/hooks/profile/acedmic/useFetchStudentInfo'
 import { Button } from '@/shadcn/components/ui/button'
 import Image from 'next/image'
 import React from 'react'
-import { FaClock, FaIdBadge, FaRegIdCard } from 'react-icons/fa'
+import {  FaRegIdCard } from 'react-icons/fa'
 import { LuSchool } from 'react-icons/lu'
 
 const AcedmicInfoHeader = () => {
   const {data} = useFetchStudentInfo()
   const q = data?.payload
   return (
-    <section className="flex flex-col gap-1">
+    <section className="flex flex-col gap-1 w-full">
       <div className="flex gap-4 items-center justify-between">
         <div className="flex gap-4 items-center">
     <Image
@@ -25,9 +25,8 @@ const AcedmicInfoHeader = () => {
     {q?.GRNO}
     </Button>
       </div>
-    <div className="w-full mt-2 flex gap-1 justify-between">
-
-    <section className="flex  py-5 w-[48%] flex-col px-4 bg-secondary  rounded-xl  text-black dark:text-white">
+    <div className="w-full mt-1 flex justify-between  ">
+    <section className="flex  py-2 w-[49%] flex-col px-4 bg-secondary  rounded-xl  text-black dark:text-white">
       <LuSchool  size={28} />
     <h1 className="font-bold hFont pt-2 ">Class Details</h1>
     <div className="flex gap-2">
@@ -41,7 +40,7 @@ const AcedmicInfoHeader = () => {
         </div>
     </section>
 
-    <section className="flex  py-5 w-[48%] flex-col px-4 bg-secondary  rounded-xl  text-black dark:text-white">
+    <section className="flex  py-2 w-[49%]  flex-col px-4 bg-secondary  rounded-xl  text-black dark:text-white">
     <FaRegIdCard  size={28} />
     <h1 className="font-bold hFont pt-2 ">Admission Details</h1>
     <div className="flex gap-2">
@@ -55,10 +54,7 @@ const AcedmicInfoHeader = () => {
         </div>
     </section>
 
-    <section className='flex gap-2'>
-      <div className="px-3 py-1 rounded-md"></div>
-      <div className="px-3 py-1 rounded-md"></div>
-    </section>
+  
     </div>
   </section>
   )

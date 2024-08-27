@@ -9,7 +9,7 @@ export default function Home() {
     <section className="flex flex-col gap-4">
         <Quote/>
       <section>
-        <HomePageHeader title='Payment History' link="See All" />
+        <HomePageHeader title='Payment History' link="See All" href="/payments/history" />
         <TransactionListSection/>
       </section>
       <section>

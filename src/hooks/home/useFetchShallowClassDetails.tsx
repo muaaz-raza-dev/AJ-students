@@ -6,6 +6,7 @@ export default function useFetchShallowClassDetails() {
     queryKey: "Class Details",
     queryFn: FetchClassShallowDetails,
     refetchOnWindowFocus: false,
-    staleTime: 1000 * 60 * 5,
+    refetchOnMount:true,
+    staleTime: 1000 * 60 ,
   });
 }
