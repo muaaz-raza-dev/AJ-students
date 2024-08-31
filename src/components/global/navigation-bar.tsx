@@ -1,7 +1,7 @@
 "use client";
 import { RiHome4Fill } from "react-icons/ri";
 import { IoSettingsOutline } from "react-icons/io5";
-import { FaRegCreditCard, FaUser } from "react-icons/fa";
+import { FaBookReader, FaRegCreditCard, FaUser } from "react-icons/fa";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
@@ -25,11 +25,12 @@ export default function NavigationBar() {
         >
           <FaRegCreditCard size={24} />
         </Link>
-        <div
-          className={clsx(regularClass,pathname == "/settings" && activeClass)}
+        
+        <Link href={'/diary'}
+          className={clsx(regularClass,pathname == "/diary" && activeClass)}
         >
-          <IoSettingsOutline size={24} />
-        </div>
+          <FaBookReader size={24}/>
+        </Link>
 
         <Link href={"/profile"}
           className={clsx(regularClass,pathname == "/profile" && activeClass)}
