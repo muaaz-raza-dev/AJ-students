@@ -7,6 +7,7 @@ import NavigationBar from "@/components/global/navigation-bar";
 import Header from "@/components/global/header";
 import APIHandler from "@/components/APIHandler";
 import { ReactNode } from "react";
+import LoginedStyleWrapper from "@/components/Auth/LoginedStyleWrapper";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -26,8 +27,10 @@ export default function RootLayout(props: Readonly<{
       <NavigationBar/>
       <Header/>
       <APIHandler/>
-      <main className="px-4 pb-20">
+      <main className="">
+        <LoginedStyleWrapper>
     {props.children}
+        </LoginedStyleWrapper>
       </main>
       </DependencyWrapper>
       </body>

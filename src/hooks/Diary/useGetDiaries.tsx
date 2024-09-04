@@ -14,7 +14,6 @@ export default function useGetDiaries() {
         },
         onSuccess({payload}) {
             dispatch(ReddlInsertPayload({payload,isLoading:false}))
-            console.log(payload)
         },
         onError({response:{data:{message}}}){
           toast.error(message)

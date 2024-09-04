@@ -102,7 +102,7 @@ export default function InvoiceDetailPage() {
         </div>
 
         <div className="flex flex-col gap-1 items-end mt-4">
-          {q?.amount.discount?
+          {q?.amount?.discount?
           <>
           <div className=" flex justify-end items-center gap-2">
             <p className="text-muted-foreground text-sm  font-medium">

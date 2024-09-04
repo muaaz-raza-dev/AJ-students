@@ -4,6 +4,7 @@ export interface IdiaryLanding{
 }
 
 export interface IshortDiary{
+    isSeen:boolean;
     _id:string;
     title:string;
     date:Date;

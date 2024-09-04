@@ -1,6 +1,5 @@
 "use client";
 import { RiHome4Fill } from "react-icons/ri";
-import { IoSettingsOutline } from "react-icons/io5";
 import { FaBookReader, FaRegCreditCard, FaUser } from "react-icons/fa";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -12,7 +11,7 @@ export default function NavigationBar() {
   if (pathname.includes("/auth")) return null;
   
   return (
-    <nav className="fixed bottom-2 w-full  min-h-12  center z-[999]">
+    <nav className="fixed bottom-2 w-full  min-h-12  center z-[999] ">
       <ul className="flex gap-12 max-md:justify-between  bg-secondary-foreground shadow-sm rounded-full font-semibold h-full px-4  py-2 ">
         <Link
           href={"/"}
