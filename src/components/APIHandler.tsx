@@ -1,16 +1,10 @@
 "use client";
 import useAuthenticate from "@/hooks/Auth/useAuthenticate";
-import React, { useEffect } from "react";
+import React from "react";
 import { AppLoader } from "./Loader/app-loader";
-import { useAppSelector } from "@/context/redux-hook";
 
 export default function APIHandler() {
-  const {isLogined} = useAppSelector(s=>s.credits)
-  const { isLoading ,refetch } = useAuthenticate();
-
-  useEffect(() => {
-  if(isLogined) refetch();
-  }, [isLogined,rehit])
+  const { isLoading  } = useAuthenticate();
 
   if (isLoading) return <AppLoader />;
   return null;

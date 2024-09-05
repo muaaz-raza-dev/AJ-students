@@ -13,7 +13,7 @@ const LoginFormFields = () => {
     <div className="grid w-full items-center gap-4">
       <div className="flex gap-x-1 overflow-hidden !rounded-lg glassEffect px-2 py-4  items-center w-full ">
         <div className="rounded-full center p-2 bg-white">
-          <FaUser className="text-primary" size={28} />
+          <FaUser className="text-[#052e16]" size={22} />
         </div>
         <input
           {...register("GRNO", { required: "GRNO is required" })}
@@ -28,7 +28,7 @@ const LoginFormFields = () => {
 
       <div className="flex gap-x-1 overflow-hidden !rounded-lg glassEffect px-2 py-4  items-center w-full ">
         <div className="rounded-full center p-2 bg-white">
-          <FaLock className="text-primary" size={28} />
+          <FaLock className="text-[#052e16]" size={22} />
         </div>
         <input
           {...register("password", { required: "password is required" })}

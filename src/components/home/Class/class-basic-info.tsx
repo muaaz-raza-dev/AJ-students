@@ -2,17 +2,16 @@
 import useFetchShallowClassDetails from '@/hooks/home/useFetchShallowClassDetails'
 import moment from 'moment';
 import React from 'react'
-import { FaChalkboardTeacher,  FaClock,  FaSchool, FaUsers } from 'react-icons/fa'
+import { FaClock,  FaSchool, FaUsers } from 'react-icons/fa'
 import ClassBasicSkeleton from './class-basic-skeleton';
 
 export default function ClassBasicInfo() {
-  const {isLoading,data} = useFetchShallowClassDetails()
-  const q =data?.payload
+  const {isLoading,data} = useFetchShallowClassDetails();
+  const q =data?.payload;
 
-  if(isLoading) return <ClassBasicSkeleton/>
-
+  if(isLoading) return <ClassBasicSkeleton/>;
   return (
-    <div className="w-full mx-auto   rounded-xl overflow-hidden transform bg-secondary">
+    <div className="w-full mx-auto   rounded-md overflow-hidden transform bg-secondary">
     <div className="flex items-center bg-primary text-white p-4">
       <div className="flex-1">
         <h2 className="text-xl font-semibold">Class {q?.class_name}</h2>
@@ -34,10 +33,6 @@ export default function ClassBasicInfo() {
       <div className="flex items-center  w-[48%]">
         <FaClock className="text-muted-foreground mr-2"  size={20}/>
         <span className="font-semibold">{moment(q?.start_date).format("DD MMMM YYYY")} </span>
-      </div>
-      <div className="flex items-center w-[48%]">
-        <FaChalkboardTeacher className="text-muted-foreground mr-2" size={20} />
-        <span className="font-semibold">Tooba aslam</span>
       </div>
     </div>
   </div>

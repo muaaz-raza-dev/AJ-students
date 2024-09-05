@@ -12,9 +12,7 @@ export default function DiaryNavbar() {
       <div className="bg-primary text-white  p-2 px-3 hFont font-semibold rounded-md">
         Diary
       </div>
-      <div className="bg-secondary text-primary  p-2 px-3 hFont font-semibold rounded-md">
-        Announcments
-      </div>
+      
     </div>
   </nav>
   )
