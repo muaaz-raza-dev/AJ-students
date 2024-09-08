@@ -10,7 +10,6 @@ import { useQuery } from "react-query";
 const CookieKey = process.env.NEXT_PUBLIC_COOKIE_KEY || "";
 const useAuthenticate = () => {
   const userSessionCookie = Cookies.get(CookieKey)
-
   const router = useRouter();
   const dispatch = useAppDispatch();
   return useQuery({
@@ -20,9 +19,8 @@ const useAuthenticate = () => {
     staleTime: 1000 * 60 * 60,
     onSuccess(data) {
       if(data){
-
-        const {payload,success} = data
-        if(success){dispatch(RedcInsertPayload({ Info:payload, isLogined: true }));}
+        const {payload,success,otherAccounts} = data
+        if(success){dispatch(RedcInsertPayload({ Info:payload, isLogined: true,otherAccounts }));}
       }
     },
     onError({

@@ -1,5 +1,5 @@
 import Login from "@/api/Auth/login.api";
-import { useAppDispatch, useAppSelector } from "@/context/redux-hook";
+import { useAppDispatch } from "@/context/redux-hook";
 import { RedcInsertPayload } from "@/context/Slices/auth-slice";
 import { Ilogin } from "@/types/Ilogin";
 import { useRouter } from "next/navigation";
@@ -13,7 +13,7 @@ const useLogin = () => {
       mutationFn: (payload:Ilogin) => Login(payload),
       onSuccess(data) {
           router.push("/")
-        dispatch(RedcInsertPayload({isLogined:true,Info:data.payload}))
+        dispatch(RedcInsertPayload({isLogined:true,Info:data.payload,otherAccounts:data.otherAccounts}))
         toast.success("Logined successfully!")
       },
       onError({response:{data:{message}}}){

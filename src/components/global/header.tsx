@@ -4,7 +4,7 @@ import { ModeToggle } from '../ThemeToggle'
 import LogoutButton from '../Auth/logout-button'
 import { usePathname } from 'next/navigation';
 import { useAppSelector } from '@/context/redux-hook';
-import { Avatar, AvatarImage } from '@/shadcn/components/ui/avatar';
+import ProfileSwitch from './profile-switch';
 
 export default function Header() {
    const path = usePathname();
@@ -14,12 +14,8 @@ export default function Header() {
   return (
     <header className='min-h-12 items-center flex justify-between px-4 py-6'>
       <div className="flex gap-2 items-center">
-              <Avatar className="h-full ">
-            <AvatarImage
-              src={avatar || "/sample.png"}
-              className="w-full h-full object-cover"
-              />
-          </Avatar>
+
+           <ProfileSwitch avatar={avatar}/>
       <div className="">
         <h1 className='hFont font-medium text-lg leading-tight '>Hi {Name||""}.</h1>
         <p className='text-muted-foreground tracking-tight text-sm'>How are you today?</p>

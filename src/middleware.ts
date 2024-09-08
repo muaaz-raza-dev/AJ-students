@@ -8,7 +8,7 @@ export function middleware(request: NextRequest) {
   const isPublicRoute = pathname.includes("/auth")
   const userSessionCookie = request.cookies.get(Cookie_key)
   if (userSessionCookie && isPublicRoute) {
-    return NextResponse.redirect(new URL('/', request.url))
+    return NextResponse.next()
   }
   else if (!isPublicRoute && !userSessionCookie) {
     return NextResponse.redirect(new URL('/auth/login', request.url))
@@ -16,7 +16,6 @@ export function middleware(request: NextRequest) {
   else if (!userSessionCookie && pathname == "/auth/forgot-password") {
     return requestOtpMiddleware(request)
   }
-
 }
 
 // See "Matching Paths" below to learn more

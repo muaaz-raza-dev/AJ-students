@@ -19,7 +19,7 @@ export const AppLoader = () => {
         <l-jelly
           size="88"
           speed="0.9"
-          color="white"
+          color="#16a34a"
         ></l-jelly>
       </div>
     );

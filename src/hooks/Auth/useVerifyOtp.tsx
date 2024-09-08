@@ -1,4 +1,3 @@
-import RequestOtp from "@/api/Auth/requestOtp.api"
 import VerifyOtp from "@/api/Auth/verfiy-otp.apt"
 import { useRouter } from "next/navigation"
 import toast from "react-hot-toast"

@@ -1,6 +1,14 @@
 export interface Icredits{
 Info?:IbasicInfo;
-isLogined:boolean
+otherAccounts?:IshortAccount[];
+isLogined:boolean;
+}
+
+export interface IshortAccount{
+    Name:string;
+    _id:string;
+    email:string;
+    photo:string
 }
 export interface IbasicInfo{
     _id:string;

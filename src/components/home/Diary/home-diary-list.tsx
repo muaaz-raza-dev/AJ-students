@@ -9,6 +9,7 @@ import { FaBook } from "react-icons/fa";
 
 export default function HomeDiaryList() {
   const { mutate, isLoading, data } = useGetDiaries();
+  
   useEffect(() => {
     mutate(moment().format("YYYY-MM-DD"));
   }, [mutate]);
