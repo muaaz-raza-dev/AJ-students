@@ -17,7 +17,7 @@ export default function ForgotPasswordPage() {
     <main >
           <div className="flex gap-x-1 overflow-hidden !rounded-lg glassEffect px-2 py-4  items-center w-full ">
             <div className="rounded-full center p-2 bg-white">
-              <FaUser className="text-primary-foreground" size={28} />
+              <FaUser className="text-primary" size={28} />
             </div>
             <input
               autoFocus
@@ -26,7 +26,7 @@ export default function ForgotPasswordPage() {
               className="!bg-transparent w-full text-lg  p-2  placeholder:text-gray-200 text-white font-medium  ring-0 outline-0 border-0 focus:outline-0 active:outline-0 focus-visible:ring-0"
             />
           </div>
-          <p className='text-muted-foreground text-xs py-2'>The OTP will be sended to your email address.</p>
+          <p className='text-muted text-xs py-2'>The OTP will be sended to your email address.</p>
          <Button disabled={!gr||isLoading} onClick={requestOtp} className="w-full py-8 my-5 text-xl font-bold" type="submit">
           {isLoading ? <RequestLoading /> : "Request OTP"}
         </Button>

@@ -18,8 +18,12 @@ const useAuthenticate = () => {
     queryFn: () => userSessionCookie && Authenticate(),
     refetchOnWindowFocus: false,
     staleTime: 1000 * 60 * 60,
-    onSuccess({ payload,success }) {
-      if(success){dispatch(RedcInsertPayload({ Info:payload, isLogined: true }));}
+    onSuccess(data) {
+      if(data){
+
+        const {payload,success} = data
+        if(success){dispatch(RedcInsertPayload({ Info:payload, isLogined: true }));}
+      }
     },
     onError({
       response: {

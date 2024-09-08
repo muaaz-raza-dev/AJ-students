@@ -10,7 +10,7 @@ export default function ProfileNav() {
   
   const ActiveStyle = "border-primary border-b-2 text-primary";
   return (
-    <nav className="border-b w-full overflow-auto mb-3 flex gap-x-6">
+    <nav className="border-b w-full overflow-auto mb-3 flex gap-x-6 px-4">
       <Link
         href={"/profile"}
         className={clsx(
@@ -37,6 +37,15 @@ export default function ProfileNav() {
         )}
       >
         Manage Password
+      </Link>
+      <Link
+        href={"/profile/devices"}
+        className={clsx(
+          `hFont text-nowrap font-medium border-primary py-2 text-muted-foreground`,
+          pathname == "/profile/devices" && ActiveStyle
+        )}
+      >
+        Devices
       </Link>
     </nav>
   );

@@ -1,4 +1,5 @@
 import Axios from "@/api/Axios"
+import { IconnectedDevice } from "@/types/IconnectedDevices"
 import { Istudent } from "@/types/Istudent"
 import Cookies from "js-cookie"
 

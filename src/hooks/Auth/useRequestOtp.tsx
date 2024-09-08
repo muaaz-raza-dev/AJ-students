@@ -8,8 +8,7 @@ const useRequestOtp = () => {
   return useMutation({mutationKey:"request otp",mutationFn:(gr:string)=>RequestOtp(gr),
     onSuccess: ({message}) => {
         toast.success(message)
-        router.push("/auth/otp",)
-      // success action
+        router.push("/auth/otp")
     },
     onError: ({response:{data:{message}}}) => {
         toast.error(message)

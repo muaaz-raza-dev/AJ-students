@@ -23,29 +23,31 @@ export default function ForgotPasswordPage() {
             <div className="glassEffect p-6">
           <InputOTP maxLength={4} minLength={4} id="OTP" value={otp} onChange={setOtp}>
           <InputOTPGroup>
-              <InputOTPSlot index={0}  className="text-3xl w-24 h-24 "/>
+              <InputOTPSlot index={0}  className="text-3xl w-16 h-16 "/>
           </InputOTPGroup>
               <InputOTPSeparator />
           <InputOTPGroup>
-              <InputOTPSlot index={1}  className="text-3xl w-24 h-24 "/>
+              <InputOTPSlot index={1}  className="text-3xl w-16 h-16 "/>
               </InputOTPGroup>
           <InputOTPSeparator />
           <InputOTPGroup>
 
-              <InputOTPSlot index={2}  className="text-3xl w-24 h-24 "/>
+              <InputOTPSlot index={2}  className="text-3xl w-16 h-16 "/>
               </InputOTPGroup>
               <InputOTPSeparator />
 
           <InputOTPGroup>
-              <InputOTPSlot index={3}  className="text-3xl w-24 h-24 "/>
+              <InputOTPSlot index={3}  className="text-3xl w-16 h-16 "/>
               </InputOTPGroup>
           </InputOTP>
             </div>
-          <p className="text-muted-foreground text-sm">Please enter the one-time password sent to your email.</p>
+          <p className="text-gray-400 text-sm">Please enter the one-time password sent to your email.</p>
           <Button disabled={otp.length!=4&&isLoading} onClick={verifyOtp}
            className="w-full py-8 my-5 text-xl font-bold" type="submit">
           {isLoading ? <RequestLoading /> : "Verify OTP"}
         </Button>
+
+
         </div>
       
   )
