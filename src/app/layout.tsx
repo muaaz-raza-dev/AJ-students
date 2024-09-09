@@ -5,9 +5,9 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import dynamic from "next/dynamic";
 import NavigationBar from "@/components/global/navigation-bar";
 import Header from "@/components/global/header";
-import APIHandler from "@/components/APIHandler";
 import { ReactNode } from "react";
 import LoginedStyleWrapper from "@/components/Auth/LoginedStyleWrapper";
+import AuthenticatedRoutes from "@/components/APIHandler";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -16,20 +16,19 @@ export const metadata: Metadata = {
 };
 
 const DependencyWrapper = dynamic(()=> import("@/components/DependencyWrapper"),{ssr:false})
-export default function RootLayout(props: Readonly<{
-  children: ReactNode;
-  transactions: ReactNode;
-}>) {
+
+export default function RootLayout(props: Readonly<{children: ReactNode;transactions: ReactNode;}>) {
   return (
     <html lang="en">
      <body className={inter.className}>
       <DependencyWrapper>
       <NavigationBar/>
       <Header/>
-      <APIHandler/>
       <main className="">
         <LoginedStyleWrapper>
-    {props.children}
+          <AuthenticatedRoutes>
+          {props.children}
+          </AuthenticatedRoutes>
         </LoginedStyleWrapper>
       </main>
       </DependencyWrapper>

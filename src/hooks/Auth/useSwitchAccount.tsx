@@ -12,21 +12,30 @@ import moment from "moment";
 
 export default function useSwitchAccount() {
     let dispatch = useAppDispatch();
-    const { mutate:refetchTodayDiary } = useGetDiaries();
-    const {refetch:refetchTransactionList} = useFetchShallowTransactionList()
-    const {refetch:refetchClassHistory} =useFetchShallowClassDetails()
+    let refetch=useFetchHomePage()
     return useMutation({
       mutationKey:"login",      
       mutationFn: (id:string) => SwitchAccount(id),
       onSuccess(data) {
         dispatch(RedcInsertPayload({isLogined:true,Info:data.payload,otherAccounts:data.otherAccounts}));
-        refetchTodayDiary(moment().format("YYYY-MM-DD")); //fetch today diary again
-        refetchTransactionList(); //fetch transaction list
-        refetchClassHistory(); // fetch class history
         toast.success("Logined successfully!");
+        refetch()
       },
       onError({response:{data:{message}}}){
         toast.error(message)
       }
     });
+}
+
+export function useFetchHomePage(){
+  const { mutate:refetchTodayDiary } = useGetDiaries();
+  const {refetch:refetchTransactionList} = useFetchShallowTransactionList()
+  const {refetch:refetchClassHistory} =useFetchShallowClassDetails()
+  function refetch(){
+    refetchTodayDiary(moment().format("YYYY-MM-DD")); //fetch today diary again
+    refetchTransactionList(); //fetch transaction list
+    refetchClassHistory(); // fetch class history
+
+  }
+  return refetch;
 }

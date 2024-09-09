@@ -1,13 +1,13 @@
 "use client";
 import Authenticate from "@/api/Auth/authenticate.api";
-import { useAppDispatch, useAppSelector } from "@/context/redux-hook";
+import { useAppDispatch } from "@/context/redux-hook";
 import { RedcInsertPayload } from "@/context/Slices/auth-slice";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
-
 import { useQuery } from "react-query";
 const CookieKey = process.env.NEXT_PUBLIC_COOKIE_KEY || "";
+
 const useAuthenticate = () => {
   const userSessionCookie = Cookies.get(CookieKey)
   const router = useRouter();
@@ -16,7 +16,8 @@ const useAuthenticate = () => {
     queryKey: ["Authenticate"],
     queryFn: () => userSessionCookie && Authenticate(),
     refetchOnWindowFocus: false,
-    staleTime: 1000 * 60 * 60,
+    staleTime: Infinity, 
+    cacheTime:0,
     onSuccess(data) {
       if(data){
         const {payload,success,otherAccounts} = data

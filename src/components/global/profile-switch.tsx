@@ -15,17 +15,14 @@ import { useAppSelector } from '@/context/redux-hook'
 import Link from 'next/link'
 import useSwitchAccount from '@/hooks/Auth/useSwitchAccount'
 import RequestLoading from '../Loader/request-loading'
-import toast from 'react-hot-toast'
-  
+// %qpXS%4q
 export default function ProfileSwitch({avatar="/sample.png"}:{avatar?:string}) {
   const [open,setOpen] = useState(false)
     const accounts =useAppSelector(s=>s.credits.otherAccounts)
     const info =useAppSelector(s=>s.credits.Info)
     const {isLoading,mutateAsync}=useSwitchAccount()
     const handleSwitch = async(id:string)=>{
-      const loadingId = toast.loading("Switching")
       await mutateAsync(id);
-      toast.dismiss(loadingId)
       setOpen(false)
     }
   return (

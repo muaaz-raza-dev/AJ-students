@@ -11,8 +11,9 @@ export default function HomeDiaryList() {
   const { mutate, isLoading, data } = useGetDiaries();
   
   useEffect(() => {
-    mutate(moment().format("YYYY-MM-DD"));
-  }, [mutate]);
+   if(mutate) mutate(moment().format("YYYY-MM-DD"));
+  }, []);
+  
   if (isLoading) return <TransactionLoader />;
   const q = data?.payload;
   return (

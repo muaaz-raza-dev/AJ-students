@@ -32,7 +32,6 @@ const LoginFormFields = () => {
         </div>
         <input
           {...register("password", { required: "password is required" })}
-          autoFocus
           type="password"
           placeholder="Password"
           className="!bg-transparent w-full text-lg  p-2 placeholder:text-gray-200 text-white font-medium  ring-0 outline-0 border-0 focus:outline-0 active:outline-0 focus-visible:ring-0"
