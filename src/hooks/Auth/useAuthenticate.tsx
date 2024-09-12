@@ -29,9 +29,7 @@ const useAuthenticate = () => {
           router.push("/auth/login");
         }
       }
-      Cookies.remove(CookieKey);
-          toast.error("Invalid Session");
-          router.push("/auth/login");
+      
     },
     onError({
       response: {
