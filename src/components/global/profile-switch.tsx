@@ -30,7 +30,7 @@ export default function ProfileSwitch({avatar="/sample.png"}:{avatar?:string}) {
   <DrawerTrigger>
   <Avatar className="h-full">
             <AvatarImage
-              src={avatar}
+              src={avatar||"/sample.png"}
               className="w-full h-full object-cover"
               />
           </Avatar>

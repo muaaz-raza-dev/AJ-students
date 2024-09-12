@@ -17,12 +17,21 @@ const useAuthenticate = () => {
     queryFn: () => userSessionCookie && Authenticate(),
     refetchOnWindowFocus: false,
     staleTime: Infinity, 
+    retry:3,
     cacheTime:0,
     onSuccess(data) {
       if(data){
         const {payload,success,otherAccounts} = data
         if(success){dispatch(RedcInsertPayload({ Info:payload, isLogined: true,otherAccounts }));}
+        else{
+          Cookies.remove(CookieKey);
+          toast.error("Invalid Session");
+          router.push("/auth/login");
+        }
       }
+      Cookies.remove(CookieKey);
+          toast.error("Invalid Session");
+          router.push("/auth/login");
     },
     onError({
       response: {

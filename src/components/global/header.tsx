@@ -15,7 +15,7 @@ export default function Header() {
     <header className='min-h-12 items-center flex justify-between px-4 py-6'>
       <div className="flex gap-2 items-center">
 
-           <ProfileSwitch avatar={avatar}/>
+        <ProfileSwitch avatar={avatar}/>
       <div className="">
         <h1 className='hFont font-medium text-lg leading-tight '>Hi {Name||""}.</h1>
         <p className='text-muted-foreground tracking-tight text-sm'>How are you today?</p>
