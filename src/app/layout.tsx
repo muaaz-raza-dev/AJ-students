@@ -43,11 +43,10 @@ export default function RootLayout(props: Readonly<{children: ReactNode;transact
     <html lang="en">
       <head>
         <title>AJ Student Panel</title>
-        <link rel="shortcut icon" href="/logo/1.png" type="image/x-icon" />
+<link rel="shortcut icon" href="/logo/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" sizes="180x180" href="/logo/apple-touch-icon.png"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/logo/favicon-32x32.png"/>
 <link rel="icon" type="image/png" sizes="16x16" href="/logo/favicon-16x16.png"/>
-<link rel="manifest" href="/logo/site.webmanifest"/>
 <link rel="mask-icon" href="/logo/safari-pinned-tab.svg" color="#5bbad5"/>
 <meta name="msapplication-TileColor" content="#da532c"/>
 <meta name="theme-color" content="#000000"/>

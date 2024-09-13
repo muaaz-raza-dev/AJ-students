@@ -20,19 +20,19 @@ export default function NavigationBar() {
           <RiHome4Fill size={24}/>
         </Link>
         <Link href={'/payments'}
-          className={clsx(regularClass,pathname == "/payments" && activeClass)}
+          className={clsx(regularClass,pathname.includes("/payments") && activeClass)}
         >
           <FaRegCreditCard size={24} />
         </Link>
         
         <Link href={'/diary'}
-          className={clsx(regularClass,pathname == "/diary" && activeClass)}
+          className={clsx(regularClass,pathname.includes("/diary") && activeClass)}
         >
           <FaBookReader size={24}/>
         </Link>
 
         <Link href={"/profile"}
-          className={clsx(regularClass,pathname == "/profile" && activeClass)}
+          className={clsx(regularClass,pathname.includes("/profile") && activeClass)}
         >
           <FaUser size={24} />
         </Link>

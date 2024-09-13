@@ -1,4 +1,5 @@
 "use client";
+import RequestLoading from '@/components/Loader/request-loading';
 import { useAppSelector } from '@/context/redux-hook'
 import { IFeeRecord } from '@/types/IfeeRecords';
 import clsx from 'clsx';
@@ -19,10 +20,10 @@ function StatusValidator(status:"Advanced Paid" | "Upcoming" | "Paid" | "Pending
 }
 
 export default function RecordsComponent() {
-  const {payload} =useAppSelector(s=>s.feeRecords)
-
-  return (
-    <section className='flex flex-col gap-2'>
+const {payload,isLoading} =useAppSelector(s=>s.feeRecords)
+if(isLoading) return <div className="center py-4"><RequestLoading dark/></div>
+return (
+<section className='flex flex-col gap-2'>
 {
   payload.length === 0 && <div className="text-center text-xl text-muted-foreground font-bold ">No Records found</div>
 }

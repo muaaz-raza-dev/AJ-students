@@ -4,12 +4,14 @@ interface IfilterSelected {
     type: "selected";
     year?: string;
     feeType?: string;
+    isLoading?: boolean;
 }
 
 interface IfilterAvailable {
     type: "available";
     years?: string[];
     feeTypes?: { [key: string]: { [key: string]: string[] }; };
+    isLoading?: boolean;
 }
 type Ifilters = IfilterAvailable | IfilterSelected;
 
@@ -24,12 +26,16 @@ export const InsertFiltersFn = (state: IfeeRecordState, { payload }: PayloadActi
         if (years) state.filters[type].years = years
         if (feeTypes) state.filters[type].feeTypes = feeTypes
     }
+
+    if(payload.isLoading != undefined) state.isLoading = payload.isLoading;
 }
 
 interface Ipayload {
-    payload: IFeeRecord[]
+    payload?: IFeeRecord[];
+    isLoading?: boolean;
 }
 
 export const InsertPayloadFn = (state: IfeeRecordState, { payload }: PayloadAction<Ipayload>) => {
-    state.payload = payload.payload
+    if(payload.payload)state.payload = payload.payload;
+    if(payload.isLoading != undefined) state.isLoading = payload.isLoading;
 }

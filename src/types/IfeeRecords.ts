@@ -6,7 +6,8 @@ export interface IfeeRecordState{
             feeTypes:{[key:string]:{[key:string]:string[]};};
         };
     };
-    payload:IFeeRecord[]
+    payload:IFeeRecord[],
+    isLoading:boolean,
 }
 export interface IFeeRecord{
         class: string;                     // The name of the class
@@ -24,5 +25,6 @@ export interface IFeeRecord{
 }
 export const defaultFeeRecord:IfeeRecordState = {
 filters:{selected:{feeType:"",year:""},available:{years:[],feeTypes:{}}},
-payload:[]
+payload:[],
+isLoading:true,
 }
