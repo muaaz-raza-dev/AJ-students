@@ -6,13 +6,15 @@ import TransactionLoader from "../Transactions/transaction-list-skeleton";
 import Link from "next/link";
 import clsx from "clsx";
 import { FaBook } from "react-icons/fa";
+import { useAppSelector } from "@/context/redux-hook";
 
 export default function HomeDiaryList() {
   const { mutate, isLoading, data } = useGetDiaries();
+  const {isLogined} = useAppSelector(s=>s.credits)
   
   useEffect(() => {
-   if(mutate) mutate(moment().format("YYYY-MM-DD"));
-  }, []);
+   if(mutate&&isLogined) mutate(moment().format("YYYY-MM-DD"));
+  }, [isLogined]);
   
   if (isLoading) return <TransactionLoader />;
   const q = data?.payload;
