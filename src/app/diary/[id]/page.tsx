@@ -15,7 +15,6 @@ export default async function EachDiaryPage({
     return null;
   }
   const { date, content, title, images, tags } = response.payload;
-
   return (
     <main className="">
       <h1 className="text-3xl font-bold hFont pb-2 text-gray-800 antialiased">

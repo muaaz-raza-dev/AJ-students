@@ -5,9 +5,9 @@ import { useQuery } from "react-query";
 
 export default function useFetchDetailedInvoice() {
   const params = useParams()
-  const invoice = params?.invoice as string
+  const invoice = params?.invoice as string;
   return useQuery({
-    queryKey: "Class Details",
+    queryKey: ["Invoice",invoice],
     queryFn: () => FetchDetailedInvoice(invoice),
     refetchOnWindowFocus: false,
     staleTime: 1000 * 60 ,

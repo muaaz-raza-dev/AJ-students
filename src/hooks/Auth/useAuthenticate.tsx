@@ -38,7 +38,7 @@ const useAuthenticate = () => {
       },
     }) {
       dispatch(RedcInsertPayload({ isLogined: false }));
-      Cookies.remove(CookieKey);
+      Cookies.remove(CookieKey); 
       toast.error(message);
       setTimeout(() => router.push("/auth/login"), 100); 
     },
