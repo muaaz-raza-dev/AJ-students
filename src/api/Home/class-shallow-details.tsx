@@ -9,6 +9,8 @@ interface Payload {
         lastName: string;
     };
     Students: number;
+    RollNo:number,
+    GRNO:string,
 }
 export default async function FetchClassShallowDetails() {
     let Secretkey = process.env.NEXT_PUBLIC_COOKIE_KEY || ""

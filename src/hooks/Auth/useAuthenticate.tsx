@@ -17,7 +17,7 @@ const useAuthenticate = () => {
     queryFn: () => userSessionCookie && Authenticate(),
     refetchOnWindowFocus: false,
     staleTime: Infinity, 
-    retry:3,
+    retry:2,
     cacheTime:0,
     onSuccess(data) {
       if(data){
@@ -26,7 +26,8 @@ const useAuthenticate = () => {
         else{
           Cookies.remove(CookieKey);
           toast.error("Invalid Session");
-          router.push("/auth/login");
+          setTimeout(() => router.push("/auth/login"), 100); 
+          
         }
       }
       
@@ -39,7 +40,7 @@ const useAuthenticate = () => {
       dispatch(RedcInsertPayload({ isLogined: false }));
       Cookies.remove(CookieKey);
       toast.error(message);
-      router.push("/auth/login");
+      setTimeout(() => router.push("/auth/login"), 100); 
     },
   });
 };

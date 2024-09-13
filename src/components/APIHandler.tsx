@@ -4,7 +4,7 @@ import React, { ReactNode } from "react";
 import { AppLoader } from "./Loader/app-loader";
 
 export default function AuthenticatedRoutes({children}:{children:ReactNode}) {
-  const { isLoading,isSuccess  } = useAuthenticate();
-  if (isLoading||!isSuccess) return <AppLoader />;
+  const { isLoading } = useAuthenticate();
+  if (isLoading) return <AppLoader />;
   return children;
 }

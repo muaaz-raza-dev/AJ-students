@@ -4,7 +4,7 @@ import moment from 'moment';
 import React from 'react'
 import { FaClock,  FaSchool, FaUsers } from 'react-icons/fa'
 import ClassBasicSkeleton from './class-basic-skeleton';
-
+import { AiFillIdcard,  AiOutlineNumber } from "react-icons/ai";
 export default function ClassBasicInfo() {
   const {isLoading,data} = useFetchShallowClassDetails();
   const q =data?.payload;
@@ -21,11 +21,20 @@ export default function ClassBasicInfo() {
             </b> 
             </div>
       </div>
-      <div className="flex-shrink-0 ml-4 bg-primary-foreground p-2 rounded-full">
+      <div className="flex-shrink-0 ml-4 bg-primary-foreground p-2 rounded-full relative">
         <FaSchool className="text-primary text-lg" />
       </div>
     </div>
     <div className="p-4 flex flex-wrap gap-2 gap-y-4 items-center">
+    <div className="flex items-center  w-[48%]">
+        <AiOutlineNumber  className="text-muted-foreground mr-2"  size={20}/>
+        <span className="font-semibold">GRNO : {q?.GRNO}</span>
+      </div>
+
+    <div className="flex items-center  w-[48%]">
+        <AiFillIdcard className="text-muted-foreground mr-2"  size={20}/>
+        <span className="font-semibold">Roll no : {q?.RollNo}</span>
+      </div>
       <div className="flex items-center  w-[48%]">
         <FaUsers className="text-muted-foreground mr-2"  size={20}/>
         <span className="font-semibold">{q?.Students} students</span>
